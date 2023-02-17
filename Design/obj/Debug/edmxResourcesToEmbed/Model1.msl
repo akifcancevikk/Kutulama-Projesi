@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="boxingModelStoreContainer" CdmEntityContainer="boxingEntities">
+    <EntitySetMapping Name="BoxDetailTable">
+      <EntityTypeMapping TypeName="boxingModel.BoxDetailTable">
+        <MappingFragment StoreEntitySet="BoxDetailTable">
+          <ScalarProperty Name="BoxDetailId" ColumnName="BoxDetailId" />
+          <ScalarProperty Name="BoxMasterId" ColumnName="BoxMasterId" />
+          <ScalarProperty Name="LabelNo" ColumnName="LabelNo" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoxMasterTable">
+      <EntityTypeMapping TypeName="boxingModel.BoxMasterTable">
+        <MappingFragment StoreEntitySet="BoxMasterTable">
+          <ScalarProperty Name="BoxMasterId" ColumnName="BoxMasterId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="BoxCount" ColumnName="BoxCount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SituationId" ColumnName="SituationId" />
+          <ScalarProperty Name="LabelNo" ColumnName="LabelNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTable">
+      <EntityTypeMapping TypeName="boxingModel.ProductTable">
+        <MappingFragment StoreEntitySet="ProductTable">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+          <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="boxingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BoxDetailTable">
+    <Key>
+      <PropertyRef Name="BoxDetailId" />
+    </Key>
+    <Property Name="BoxDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BoxMasterId" Type="int" />
+    <Property Name="LabelNo" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BoxMasterTable">
+    <Key>
+      <PropertyRef Name="BoxMasterId" />
+    </Key>
+    <Property Name="BoxMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="BoxCount" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="SituationId" Type="nvarchar" MaxLength="50" />
+    <Property Name="LabelNo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductTable">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReferenceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaxCount" Type="int" />
+  </EntityType>
+  <EntityContainer Name="boxingModelStoreContainer">
+    <EntitySet Name="BoxDetailTable" EntityType="Self.BoxDetailTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BoxMasterTable" EntityType="Self.BoxMasterTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

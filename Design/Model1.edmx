@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="boxingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BoxDetailTable">
+          <Key>
+            <PropertyRef Name="BoxDetailId" />
+          </Key>
+          <Property Name="BoxDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoxMasterId" Type="int" />
+          <Property Name="LabelNo" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BoxMasterTable">
+          <Key>
+            <PropertyRef Name="BoxMasterId" />
+          </Key>
+          <Property Name="BoxMasterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="BoxCount" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="SituationId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LabelNo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferenceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaxCount" Type="int" />
+        </EntityType>
+        <EntityContainer Name="boxingModelStoreContainer">
+          <EntitySet Name="BoxDetailTable" EntityType="Self.BoxDetailTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BoxMasterTable" EntityType="Self.BoxMasterTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTable" EntityType="Self.ProductTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="boxingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BoxDetailTable">
+          <Key>
+            <PropertyRef Name="BoxDetailId" />
+          </Key>
+          <Property Name="BoxDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoxMasterId" Type="Int32" />
+          <Property Name="LabelNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BoxMasterTable">
+          <Key>
+            <PropertyRef Name="BoxMasterId" />
+          </Key>
+          <Property Name="BoxMasterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="BoxCount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="SituationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LabelNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductTable">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferenceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaxCount" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="boxingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BoxDetailTable" EntityType="Self.BoxDetailTable" />
+          <EntitySet Name="BoxMasterTable" EntityType="Self.BoxMasterTable" />
+          <EntitySet Name="ProductTable" EntityType="Self.ProductTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="boxingModelStoreContainer" CdmEntityContainer="boxingEntities">
+          <EntitySetMapping Name="BoxDetailTable">
+            <EntityTypeMapping TypeName="boxingModel.BoxDetailTable">
+              <MappingFragment StoreEntitySet="BoxDetailTable">
+                <ScalarProperty Name="BoxDetailId" ColumnName="BoxDetailId" />
+                <ScalarProperty Name="BoxMasterId" ColumnName="BoxMasterId" />
+                <ScalarProperty Name="LabelNo" ColumnName="LabelNo" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BoxMasterTable">
+            <EntityTypeMapping TypeName="boxingModel.BoxMasterTable">
+              <MappingFragment StoreEntitySet="BoxMasterTable">
+                <ScalarProperty Name="BoxMasterId" ColumnName="BoxMasterId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="BoxCount" ColumnName="BoxCount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SituationId" ColumnName="SituationId" />
+                <ScalarProperty Name="LabelNo" ColumnName="LabelNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTable">
+            <EntityTypeMapping TypeName="boxingModel.ProductTable">
+              <MappingFragment StoreEntitySet="ProductTable">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
